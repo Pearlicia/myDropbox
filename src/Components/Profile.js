@@ -1,12 +1,12 @@
 import React, { useState } from "react"
 import { Card, Alert } from "react-bootstrap"
-import { useAuth } from "../AuthContext"
+import { useAuthenticate } from "../Context"
 import { Link } from "react-router-dom"
 import Center from "./Center"
 
 export default function Profile() {
   const [error, setError] = useState("")
-  const { currentUser, logout } = useAuth()
+  const { currentUser, logout } = useAuthenticate()
   return (
     <Center>
       <Card className="bg-light">

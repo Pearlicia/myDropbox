@@ -1,5 +1,5 @@
 import { useReducer, useEffect } from "react"
-import { useAuth } from "./AuthContext"
+import { useAuthenticate } from "./Context"
 import { db } from "./firebaseConfig"
 
 const ACTIONS = {
@@ -40,14 +40,14 @@ function reducer(state, { type, payload }) {
   }
 }
 
-export function useFolder(folderId = null, folder = null) {
+export function useCustomHook(folderId = null, folder = null) {
   const [state, dispatch] = useReducer(reducer, {
     folderId,
     folder,
     childFolders: [],
     childFiles: [],
   })
-  const { currentUser } = useAuth()
+  const { currentUser } = useAuthenticate()
 
   useEffect(() => {
     dispatch({ type: ACTIONS.SELECT_FOLDER, payload: { folderId, folder } })

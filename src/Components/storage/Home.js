@@ -1,6 +1,6 @@
 import React from "react"
 import { Container } from "react-bootstrap"
-import { useFolder } from "../../useFolder"
+import { useCustomHook } from "../../CustomHook"
 import AddFolderButton from "./Add_Folder"
 import AddFileButton from "./Add_File"
 import Folder from "./Folder"
@@ -12,7 +12,7 @@ import { useParams, useLocation } from "react-router-dom"
 function Home() {
   const { folderId } = useParams()
   const { state = {} } = useLocation()
-  const { folder, childFolders, childFiles } = useFolder(folderId, state.folder)
+  const { folder, childFolders, childFiles } = useCustomHook(folderId, state.folder)
 
   return (
     <>

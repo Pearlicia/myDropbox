@@ -1,16 +1,14 @@
 import React, { useState } from "react"
 import ReactDOM from "react-dom"
-import { faFileUpload } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useAuth } from "../../AuthContext"
+import { useAuthenticate } from "../../Context"
 import { storage, db } from "../../firebaseConfig"
-import { ROOT_FOLDER } from "../../useFolder"
+import { ROOT_FOLDER } from "../../CustomHook"
 import { v4 as uuidV4 } from "uuid"
 import { ProgressBar, Toast } from "react-bootstrap"
 
 export default function AddFileButton({ currentFolder }) {
   const [uploadingFiles, setUploadingFiles] = useState([])
-  const { currentUser } = useAuth()
+  const { currentUser } = useAuthenticate()
   function handleUpload(e) {
     const file = e.target.files[0]
     if (currentFolder == null || file == null) return

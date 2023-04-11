@@ -1,7 +1,7 @@
 import React from "react"
 import { Breadcrumb } from "react-bootstrap"
 import { Link } from "react-router-dom"
-import { ROOT_FOLDER } from "../../useFolder"
+import { ROOT_FOLDER } from "../../CustomHook"
 
 export default function FolderBreadcrumbs({ currentFolder }) {
   let path = currentFolder === ROOT_FOLDER ? [] : [ROOT_FOLDER]

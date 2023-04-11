@@ -1,15 +1,13 @@
 import React, { useState } from "react"
 import { Button, Modal, Form } from "react-bootstrap"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faFolderPlus } from "@fortawesome/free-solid-svg-icons"
 import { db } from "../../firebaseConfig"
-import { useAuth } from "../../AuthContext"
-import { ROOT_FOLDER } from "../../useFolder"
+import { useAuthenticate } from "../../Context"
+import { ROOT_FOLDER } from "../../CustomHook"
 
 export default function AddFolderButton({ currentFolder }) {
   const [open, setOpen] = useState(false)
   const [name, setName] = useState("")
-  const { currentUser } = useAuth()
+  const { currentUser } = useAuthenticate()
 
   function openModal() {
     setOpen(true)
